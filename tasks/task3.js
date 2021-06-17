@@ -16,11 +16,12 @@ export default function formatText(text, format, limit) {
     console.log(rowStr);
     console.log(rowStr.length);
     if (rowStr.length > limit) {
-      for (let j = 0; j <= rowStr.length / limit; j++) {
+      while (rowStr.length > limit) {
         for (let i = limit; i >= 0; i--) {
           if (rowStr[i] === " ") {
             rowStrs.push(rowStr.substring(0, i).trim());
             rowStr = rowStr.replace(rowStr.substring(0, i).trim(), "");
+            rowStr = rowStr.trim();
             break;
           }
         }
